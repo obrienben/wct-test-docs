@@ -8,6 +8,7 @@ Web Curator Tool Documentation
    :caption: Contents:
    
    guides/system-administrator-guide
+   guides/user-manual
 
 
 
