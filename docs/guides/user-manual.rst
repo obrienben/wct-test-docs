@@ -3700,285 +3700,285 @@ Figure 28: Detailed workflow
    For information about the Rosetta preservation system visit:
    https://www.exlibrisgroup.com/products/rosetta-digital-asset-management-and-preservation/
 
-.. |image0| image:: ../_static/media/image2.jpeg
+.. |image0| image:: ../_static/user-manual/image2.jpeg
    :width: 7.46875in
    :height: 1.72917in
-.. |image1| image:: ../_static/media/image3.wmf
-.. |image2| image:: ../_static/media/image4.png
+.. |image1| image:: ../_static/user-manual/image3.wmf
+.. |image2| image:: ../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image3| image:: ../_static/media/image4.png
+.. |image3| image:: ../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image4| image:: ../_static/media/image4.png
+.. |image4| image:: ../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image5| image:: ../../_static/media/image4.png
+.. |image5| image:: ../../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image6| image:: ../_static/media/image5.png
+.. |image6| image:: ../_static/user-manual/image5.png
    :width: 6.25in
    :height: 3.28125in
-.. |image7| image:: ../_static/media/image4.png
+.. |image7| image:: ../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image8| image:: ../_static/media/image6.png
+.. |image8| image:: ../_static/user-manual/image6.png
    :width: 6in
    :height: 3in
-.. |view| image:: ../_static/media/image7.png
+.. |view| image:: ../_static/user-manual/image7.png
    :width: 0.17708in
    :height: 0.21875in
-.. |Edit| image:: ../_static/media/image8.png
+.. |Edit| image:: ../_static/user-manual/image8.png
    :width: 0.1875in
    :height: 0.19792in
-.. |copy| image:: ../_static/media/image9.png
+.. |copy| image:: ../_static/user-manual/image9.png
    :width: 0.375in
    :height: 0.19792in
-.. |generate| image:: ../_static/media/image10.png
+.. |generate| image:: ../_static/user-manual/image10.png
    :width: 0.29167in
    :height: 0.23958in
-.. |image13| image:: ../_static/media/image11.png
+.. |image13| image:: ../_static/user-manual/image11.png
    :width: 5.77083in
    :height: 3.58333in
-.. |image14| image:: ../_static/media/image12.png
+.. |image14| image:: ../_static/user-manual/image12.png
    :width: 5.77083in
    :height: 2.03125in
-.. |image15| image:: ../_static/media/image13.emf
+.. |image15| image:: ../_static/user-manual/image13.emf
    :width: 5.77083in
    :height: 1.84375in
-.. |image16| image:: ../_static/media/image14.png
+.. |image16| image:: ../_static/user-manual/image14.png
    :width: 5.77083in
    :height: 2.60417in
-.. |image17| image:: ../_static/media/image15.png
+.. |image17| image:: ../_static/user-manual/image15.png
    :width: 5.98958in
    :height: 2.26042in
-.. |image18| image:: ../_static/media/image16.png
+.. |image18| image:: ../_static/user-manual/image16.png
    :width: 6in
    :height: 6.11458in
-.. |image19| image:: ../_static/media/image17.png
+.. |image19| image:: ../_static/user-manual/image17.png
    :width: 6.86458in
    :height: 3.44792in
-.. |image20| image:: ../_static/media/image4.png
+.. |image20| image:: ../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image21| image:: ../_static/media/image18.png
+.. |image21| image:: ../_static/user-manual/image18.png
    :width: 6.75in
    :height: 3.5in
-.. |image22| image:: ../_static/media/image19.png
+.. |image22| image:: ../_static/user-manual/image19.png
    :width: 0.27083in
    :height: 0.26042in
-.. |image23| image:: ../_static/media/image20.png
+.. |image23| image:: ../_static/user-manual/image20.png
    :width: 0.21875in
    :height: 0.22917in
-.. |image24| image:: ../_static/media/image21.png
+.. |image24| image:: ../_static/user-manual/image21.png
    :width: 6.75in
    :height: 3.66667in
-.. |image25| image:: ../_static/media/image22.png
+.. |image25| image:: ../_static/user-manual/image22.png
    :width: 5.98958in
    :height: 1.96875in
-.. |image26| image:: ../_static/media/image24.png
+.. |image26| image:: ../_static/user-manual/image24.png
    :width: 6.625in
    :height: 2.19792in
-.. |image27| image:: ../_static/media/image25.png
+.. |image27| image:: ../_static/user-manual/image25.png
    :width: 5.98958in
    :height: 3.04167in
-.. |image28| image:: ../_static/media/image26.png
+.. |image28| image:: ../_static/user-manual/image26.png
    :width: 6in
    :height: 3.39583in
-.. |image29| image:: ../_static/media/image4.png
+.. |image29| image:: ../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image30| image:: ../_static/media/image27.png
+.. |image30| image:: ../_static/user-manual/image27.png
    :width: 5.98958in
    :height: 5.14583in
-.. |delete| image:: ../_static/media/image28.png
+.. |delete| image:: ../_static/user-manual/image28.png
    :width: 0.13542in
    :height: 0.21875in
-.. |image32| image:: ../_static/media/image29.png
+.. |image32| image:: ../_static/user-manual/image29.png
    :width: 0.21875in
    :height: 0.20833in
-.. |image33| image:: ../_static/media/image30.png
+.. |image33| image:: ../_static/user-manual/image30.png
    :width: 0.21875in
    :height: 0.20833in
-.. |image34| image:: ../_static/media/image31.png
+.. |image34| image:: ../_static/user-manual/image31.png
    :width: 0.21875in
    :height: 0.20833in
-.. |image35| image:: ../_static/media/image32.png
+.. |image35| image:: ../_static/user-manual/image32.png
    :width: 0.21875in
    :height: 0.20833in
-.. |image36| image:: ../_static/media/image33.png
+.. |image36| image:: ../_static/user-manual/image33.png
    :width: 0.25in
    :height: 0.30208in
-.. |image37| image:: ../_static/media/image34.png
+.. |image37| image:: ../_static/user-manual/image34.png
    :width: 5.77083in
    :height: 1.89583in
-.. |image38| image:: ../_static/media/image35.png
+.. |image38| image:: ../_static/user-manual/image35.png
    :width: 0.98958in
    :height: 0.25in
-.. |image39| image:: ../_static/media/image36.png
+.. |image39| image:: ../_static/user-manual/image36.png
    :width: 0.97917in
    :height: 0.3125in
-.. |image40| image:: ../_static/media/image37.png
+.. |image40| image:: ../_static/user-manual/image37.png
    :width: 0.72917in
    :height: 0.23958in
-.. |image41| image:: ../_static/media/image38.png
+.. |image41| image:: ../_static/user-manual/image38.png
    :width: 5.76042in
    :height: 1.98958in
-.. |image42| image:: ../_static/media/image39.png
+.. |image42| image:: ../_static/user-manual/image39.png
    :width: 6.375in
    :height: 2.84375in
-.. |image43| image:: ../_static/media/image29.png
+.. |image43| image:: ../_static/user-manual/image29.png
    :width: 0.21875in
    :height: 0.20833in
-.. |image44| image:: ../_static/media/image40.png
+.. |image44| image:: ../_static/user-manual/image40.png
    :width: 5.77083in
    :height: 4.13542in
-.. |image45| image:: ../_static/media/image41.png
+.. |image45| image:: ../_static/user-manual/image41.png
    :width: 2.96875in
    :height: 3in
-.. |image46| image:: ../_static/media/image42.png
+.. |image46| image:: ../_static/user-manual/image42.png
    :width: 4.01042in
    :height: 1.03125in
-.. |image47| image:: ../_static/media/image43.png
+.. |image47| image:: ../_static/user-manual/image43.png
    :width: 4.05208in
    :height: 0.4375in
-.. |image48| image:: ../_static/media/image44.png
+.. |image48| image:: ../_static/user-manual/image44.png
    :width: 6in
    :height: 3.28125in
-.. |image49| image:: ../_static/media/image45.png
+.. |image49| image:: ../_static/user-manual/image45.png
    :width: 6.04167in
    :height: 1.41667in
-.. |image50| image:: ../_static/media/image4.png
+.. |image50| image:: ../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image51| image:: ../_static/media/image46.png
+.. |image51| image:: ../_static/user-manual/image46.png
    :width: 5.76042in
    :height: 1.6875in
-.. |image52| image:: ../_static/media/image47.png
+.. |image52| image:: ../_static/user-manual/image47.png
    :width: 5.77083in
    :height: 2.20833in
-.. |image53| image:: ../_static/media/image48.png
+.. |image53| image:: ../_static/user-manual/image48.png
    :width: 6in
    :height: 1.61458in
-.. |image54| image:: ../_static/media/image49.png
+.. |image54| image:: ../_static/user-manual/image49.png
    :width: 6in
    :height: 5.16667in
-.. |image55| image:: ../_static/media/image50.png
+.. |image55| image:: ../_static/user-manual/image50.png
    :width: 5.98958in
    :height: 6.58333in
-.. |image56| image:: ../_static/media/image51.png
+.. |image56| image:: ../_static/user-manual/image51.png
    :width: 6in
    :height: 1.75in
-.. |image57| image:: ../_static/media/image52.png
+.. |image57| image:: ../_static/user-manual/image52.png
    :width: 5.78125in
    :height: 2.53125in
-.. |image58| image:: ../_static/media/image53.png
+.. |image58| image:: ../_static/user-manual/image53.png
    :width: 5.79167in
    :height: 3.36458in
-.. |image59| image:: ../_static/media/image54.png
+.. |image59| image:: ../_static/user-manual/image54.png
    :width: 5.86458in
    :height: 3.25in
-.. |image60| image:: ../_static/media/image4.png
+.. |image60| image:: ../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image61| image:: ../_static/media/image55.png
+.. |image61| image:: ../_static/user-manual/image55.png
    :width: 6.125in
    :height: 2.46875in
-.. |image62| image:: ../_static/media/image56.png
+.. |image62| image:: ../_static/user-manual/image56.png
    :width: 5.76042in
    :height: 3.58333in
-.. |image63| image:: ../_static/media/image57.png
+.. |image63| image:: ../_static/user-manual/image57.png
    :width: 5.77083in
    :height: 1.20833in
-.. |image64| image:: ../_static/media/image58.png
+.. |image64| image:: ../_static/user-manual/image58.png
    :width: 5.76042in
    :height: 1.61458in
-.. |image65| image:: ../_static/media/image59.png
+.. |image65| image:: ../_static/user-manual/image59.png
    :width: 5.77083in
    :height: 2.66667in
-.. |image66| image:: ../_static/media/image60.png
+.. |image66| image:: ../_static/user-manual/image60.png
    :width: 5.76042in
    :height: 2in
-.. |image67| image:: ../_static/media/image4.png
+.. |image67| image:: ../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image68| image:: ../_static/media/image61.png
+.. |image68| image:: ../_static/user-manual/image61.png
    :width: 5.76042in
    :height: 3.86458in
-.. |claim| image:: ../_static/media/image62.png
+.. |claim| image:: ../_static/user-manual/image62.png
    :width: 0.17708in
    :height: 0.20833in
-.. |action-icon-unclaim| image:: ../_static/media/image63.png
+.. |action-icon-unclaim| image:: ../_static/user-manual/image63.png
    :width: 0.19792in
    :height: 0.20833in
-.. |image71| image:: ../_static/media/image64.png
+.. |image71| image:: ../_static/user-manual/image64.png
    :width: 5.77083in
    :height: 3.4375in
-.. |image72| image:: ../_static/media/image4.png
+.. |image72| image:: ../_static/user-manual/image4.png
    :width: 13.75in
    :height: 1.06944in
-.. |image73| image:: ../_static/media/image65.png
+.. |image73| image:: ../_static/user-manual/image65.png
    :width: 5.76042in
    :height: 1.375in
-.. |image74| image:: ../_static/media/image66.png
+.. |image74| image:: ../_static/user-manual/image66.png
    :width: 5.76042in
    :height: 2.46875in
-.. |image75| image:: ../_static/media/image67.png
+.. |image75| image:: ../_static/user-manual/image67.png
    :width: 5.76042in
    :height: 1.48958in
-.. |image76| image:: ../_static/media/image4.png
+.. |image76| image:: ../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image77| image:: ../_static/media/image4.png
+.. |image77| image:: ../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image78| image:: ../_static/media/image68.png
+.. |image78| image:: ../_static/user-manual/image68.png
    :width: 6in
    :height: 1.54167in
-.. |image79| image:: ../_static/media/image69.png
+.. |image79| image:: ../_static/user-manual/image69.png
    :width: 5.77083in
    :height: 1.33333in
-.. |image80| image:: ../_static/media/image70.png
+.. |image80| image:: ../_static/user-manual/image70.png
    :width: 5.76042in
    :height: 4.08333in
-.. |image81| image:: ../_static/media/image71.png
+.. |image81| image:: ../_static/user-manual/image71.png
    :width: 5.76042in
    :height: 1.75in
-.. |action-icon-view| image:: ../_static/media/image72.png
+.. |action-icon-view| image:: ../_static/user-manual/image72.png
    :width: 0.15625in
    :height: 0.19792in
-.. |click here to EDIT this item| image:: ../_static/media/image73.png
+.. |click here to EDIT this item| image:: ../_static/user-manual/image73.png
    :width: 0.1875in
    :height: 0.1875in
-.. |click here to COPY this item| image:: ../_static/media/image74.png
+.. |click here to COPY this item| image:: ../_static/user-manual/image74.png
    :width: 0.35417in
    :height: 0.19792in
-.. |click here to Export this item as XML| image:: ../_static/media/image75.png
+.. |click here to Export this item as XML| image:: ../_static/user-manual/image75.png
    :width: 0.1875in
    :height: 0.1875in
-.. |save| image:: ../_static/media/image75.png
+.. |save| image:: ../_static/user-manual/image75.png
    :width: 0.1875in
    :height: 0.1875in
-.. |click here to Transfer this profiles targets| image:: ../_static/media/image76.png
+.. |click here to Transfer this profiles targets| image:: ../_static/user-manual/image76.png
    :width: 0.26042in
    :height: 0.20833in
-.. |image87| image:: ../_static/media/image78.png
+.. |image87| image:: ../_static/user-manual/image78.png
    :width: 5.76042in
    :height: 2.66667in
-.. |image88| image:: ../_static/media/image4.png
+.. |image88| image:: ../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image89| image:: ../_static/media/image79.png
+.. |image89| image:: ../_static/user-manual/image79.png
    :width: 5.77083in
    :height: 1.05208in
-.. |image90| image:: ../_static/media/image4.png
+.. |image90| image:: ../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image91| image:: ../_static/media/image80.png
+.. |image91| image:: ../_static/user-manual/image80.png
    :width: 5.77083in
    :height: 4.19792in
-.. |image92| image:: ../_static/media/image4.png
+.. |image92| image:: ../_static/user-manual/image4.png
    :width: 5.76042in
    :height: 0.44792in
-.. |image93| image:: ../_static/media/image81.png
-.. |image94| image:: ../_static/media/image82.png
+.. |image93| image:: ../_static/user-manual/image81.png
+.. |image94| image:: ../_static/user-manual/image82.png

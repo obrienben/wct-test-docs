@@ -1473,10 +1473,7 @@ To enable the OMS Archive, set the **archive** property in the
    Internet Archive. The current incarnation of Wayback is called OpenWayback and
    maintained by the IIPC. See https://github.com/iipc/openwayback
 
-.. |image0| image:: media/image1.png
-   :width: 7.43125in
-   :height: 10.625in
-.. |image6| image:: media/image2.png
+.. |image6| image:: ../_static/system-administrator-guide/image2.png
    :width: 5.77361in
    :height: 1.94306in
 
