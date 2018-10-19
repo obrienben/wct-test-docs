@@ -90,7 +90,7 @@ Introduction
 
 This guide, designed for a System Administrator, covers installation and
 setup of the Web Curator Tool. An electronic copy can be downloaded from
-the WCT Sourceforge website: http://webcurator.sourceforge.net/
+the WCT Github site: http://dia-nz.github.io/webcurator/
 
 For information on using the Web Curator Tool, see the Web Curator Tool
 Quick Start Guide and the Web Curator Tool online help.
@@ -1090,11 +1090,11 @@ after a comma within the curly brackets e.g.
 The **QualityReviewController.enableAccessTool** and **HarvestResourceUrlMapper** settings can be used
 to allow Wayback to be used as an access tool for the WCT; either instead of, or in
 addition to the standard Browse tool. An example of how this may be
-achieved is detailed on the WCT Wiki. See https://github.com/DIANZ/webcurator/wiki/Wayback-Integration.
+achieved is detailed on the WCT Wiki. See https://github.com/DIA-NZ/webcurator/wiki/Wayback-Integration.
 
 Note that if Wayback is being used as an access tool, the
-WaybackIndexer must be enabled and configured (see wctdas.properties
-below and https://github.com/DIANZ/webcurator/wiki/Wayback-Integration).
+WaybackIndexer must be enabled and configured (see wct-das.properties
+below and https://github.com/DIA-NZ/webcurator/wiki/Wayback-Integration).
 
 
 Web Curator Core – wct-core-security.xml
@@ -1464,14 +1464,14 @@ To enable the OMS Archive, set the **archive** property in the
     omsArchive.password=password
 
 .. [1]
-   Wayback refers to the Java version of the Wayback Machine from the
-   Internet Archive. See
-   http://archive-access.sourceforge.net/projects/wayback/
+   Wayback refers to the Java version of the Wayback Machine originally from the
+   Internet Archive. The current incarnation of Wayback is called OpenWayback and
+   maintained by the IIPC. See https://github.com/iipc/openwayback
 
 .. [2]
-   Wayback refers to the Java version of the Wayback Machine from the
-   Internet Archive. See
-   http://archive-access.sourceforge.net/projects/wayback/
+   Wayback refers to the Java version of the Wayback Machine originally from the
+   Internet Archive. The current incarnation of Wayback is called OpenWayback and
+   maintained by the IIPC. See https://github.com/iipc/openwayback
 
 .. |image0| image:: media/image1.png
    :width: 7.43125in

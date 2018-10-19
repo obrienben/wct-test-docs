@@ -241,7 +241,7 @@ major Web Curator Tool modules.
 
 System administrators will find an Administrators Guide and other
 technical documentation on the Web Curator Tool website
-(webcurator.sourceforge.net).
+(http://dia-nz.github.io/webcurator/).
 
 Where to find more information
 ------------------------------
@@ -249,16 +249,15 @@ Where to find more information
 The primary source for information on the Web Curator Tool is the
 website:
 
-http://webcurator.sourceforge.net/
+http://dia-nz.github.io/webcurator/
 
-The website includes access to the tool, its documentation, news
-updates, mailing lists, technical documentation, and many other
-resources, including the most recent version of this manual.
+The Github project pageThe  includes links to download the tool, its
+corner that leads to the Github project page. Here you can navigate to
+the Web Curator Tool Wiki which is also hosted on Github.
 
 Each page in the Web Curator Tool has a Help link in the top right
-corner that leads to a context-sensitive help page. The help pages are
-part of the Web Curator Tool Wiki, and will be developed over time. (If
-you think a page is insufficient, you can help by updating it.)
+corner that leads to the Github project page. Here you can navigate to
+the Web Curator Tool Wiki which is also hosted on Github.
 
 System Overview
 =========================
@@ -2146,7 +2145,7 @@ a backup browser if the Access Tool goes down\ *.* It is also useful if
 you have several TI's of the same website harvested, as it only displays
 the TI requested.
 
-**The Review in Access Tool (Wayback)** is the preferred browser as it
+**The Review in Access Tool (OpenWayback)** is the preferred browser as it
 is being maintained.
 
 The **Live Site** link is provided so you can quickly open the original
@@ -2611,13 +2610,11 @@ The main tools used to diagnose harvest errors are your web browser, and
 the WCT Quality Review Tools: the Browse Tool and the Prune Tool.
 However, other tools that may be useful.
 
-Web Developer Toolbar for Firefox
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Web Developer Toolbar for Firefox and Chrome
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Web Developer Toolbar for Firefox
-(http://addons.mozilla.org/en-US/firefox/addon/60) provides a toolbar
-(and a menu under Tools) in the Firefox web browser with numerous
-features for diagnosing problems with websites.
+The Web Developer Toolbars provide a toolbar in the Firefox and Chrome web
+browsers with numerous features for diagnosing problems with websites.
 
 The full set of functionality is quite daunting, but these features can
 be very useful:
@@ -2679,9 +2676,9 @@ web browsers (such as Heritrix, Googlebot, etc).
 To test whether this is happening to you, configure the user agent
 switch to you the user agent used in the Web Curator Tool (by default,
 this is
-``Mozilla/5.0 (compatible; heritrix/1.8.0
-+http://webcurator.sourceforge.net/)``
-for version 1.2) and then attempt to browse the relevant site.
+``Mozilla/5.0 (compatible; heritrix/1.14.1
++http://dia-nz.github.io/webcurator/)``
+for version 1.6+) and then attempt to browse the relevant site.
 
 .. _groups-1:
 
@@ -3694,14 +3691,14 @@ Detailed workflow example
 Figure 28: Detailed workflow
 
 .. [1]
-   The use of the Internet Archive's Java Wayback Machine as an access
-   tool is described in
-   `WCT_1_5_Wayback_Sample.zip <https://sourceforge.net/projects/webcurator/files/webcurator/1.5GA/WCT_1_5_Wayback_Sample.zip/download>`__
-   which is available to download as part of the WCT 1.5GA release.
+   The use of the IIPC's redevelopment of the Java Wayback Machine - OpenWayback -
+   as an access tool is described as in the Web Curator Wiki
+   https://github.com/DIA-NZ/webcurator/wiki/ and is available to download from
+   the OpenWayback project on Github https://github.com/iipc/openwayback.
 
 .. [2]
    For information about the Rosetta preservation system visit:
-   http://www.exlibrisgroup.com/category/RosettaOverview
+   https://www.exlibrisgroup.com/products/rosetta-digital-asset-management-and-preservation/
 
 .. |image0| image:: ../_static/media/image2.jpeg
    :width: 7.46875in
