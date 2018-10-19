@@ -2,6 +2,216 @@
 User Manual
 ==========================
 
+Contents
+=====================
+
+`Introduction 4 <#introduction>`__
+
+`About the Web Curator Tool 4 <#about-the-web-curator-tool>`__
+
+`About this document 4 <#about-this-document>`__
+
+`Where to find more information 4 <#where-to-find-more-information>`__
+
+`System Overview 5 <#system-overview>`__
+
+`Background 5 <#background>`__
+
+`Purpose and scope 5 <#purpose-and-scope>`__
+
+`Essential terminology 6 <#essential-terminology>`__
+
+`Impact of the tool 7 <#impact-of-the-tool>`__
+
+`How Does it Work? 7 <#how-does-it-work>`__
+
+`Home Page 9 <#home-page>`__
+
+`Harvest Authorisations 11 <#harvest-authorisations>`__
+
+`Introduction 11 <#introduction-1>`__
+
+`Terminology and status codes 12 <#terminology-and-status-codes>`__
+
+`How harvest authorisations work
+13 <#how-harvest-authorisations-work>`__
+
+`Sample harvest authorisation 13 <#sample-harvest-authorisation>`__
+
+`Harvest authorisation search page
+15 <#harvest-authorisation-search-page>`__
+
+`How to create a harvest authorisation
+16 <#how-to-create-a-harvest-authorisation>`__
+
+`How to send and/or print a permission request email
+21 <#how-to-send-andor-print-a-permission-request-email>`__
+
+`How to view or update the status of a permission record
+22 <#how-to-view-or-update-the-status-of-a-permission-record>`__
+
+`How to edit or view a harvest authorisation
+22 <#how-to-edit-or-view-a-harvest-authorisation>`__
+
+`Legislative and other sources of authorisation
+23 <#legislative-and-other-sources-of-authorisation>`__
+
+`Targets 25 <#targets>`__
+
+`Introduction 25 <#introduction-2>`__
+
+`Terminology and status codes 25 <#terminology-and-status-codes-1>`__
+
+`How targets work 26 <#how-targets-work>`__
+
+`Target search page 28 <#target-search-page>`__
+
+`How to create a target 29 <#how-to-create-a-target>`__
+
+`How to edit or view a target 36 <#how-to-edit-or-view-a-target>`__
+
+`How to nominate and approve a target
+36 <#how-to-nominate-and-approve-a-target>`__
+
+`How to delete or cancel a target
+37 <#how-to-delete-or-cancel-a-target>`__
+
+`Target Instances and Scheduling
+38 <#target-instances-and-scheduling>`__
+
+`Introduction 38 <#introduction-3>`__
+
+`Terminology and status codes 38 <#terminology-and-status-codes-2>`__
+
+`How target instances work 39 <#how-target-instances-work>`__
+
+`Target instance page 41 <#target-instance-page>`__
+
+`Scheduling and the harvest queue
+44 <#scheduling-and-the-harvest-queue>`__
+
+`To review target instances: 46 <#_Toc370898213>`__
+
+`How to review, endorse or submit a target instance
+49 <#how-to-review-endorse-or-submit-a-target-instance>`__
+
+`Target Instance Quality Review 51 <#target-instance-quality-review>`__
+
+`Introduction 51 <#introduction-4>`__
+
+`Terminology and status codes 51 <#terminology-and-status-codes-3>`__
+
+`Opening quality review tools 52 <#opening-quality-review-tools>`__
+
+`Quality review with the browse tool
+52 <#quality-review-with-the-browse-tool>`__
+
+`Quality review with the harvest history tool
+54 <#quality-review-with-the-harvest-history-tool>`__
+
+`Quality review with the prune tool
+55 <#quality-review-with-the-prune-tool>`__
+
+`The log file viewer 58 <#the-log-file-viewer>`__
+
+`Diagnosing problems with completed harvests
+59 <#diagnosing-problems-with-completed-harvests>`__
+
+`Diagnosing when too little material is harvested
+63 <#diagnosing-when-too-little-material-is-harvested>`__
+
+`Diagnosing when too much material is harvested
+64 <#diagnosing-when-too-much-material-is-harvested>`__
+
+`Third-party quality review tools
+67 <#third-party-quality-review-tools>`__
+
+`Groups 69 <#groups-1>`__
+
+`Introduction 69 <#introduction-5>`__
+
+`Group search page 70 <#group-search-page>`__
+
+`How to create a group 70 <#how-to-create-a-group>`__
+
+`How to edit or view a Group 74 <#how-to-edit-or-view-a-group>`__
+
+`Harvesting a group 74 <#harvesting-a-group>`__
+
+`The In Tray 76 <#the-in-tray>`__
+
+`Introduction 76 <#introduction-6>`__
+
+`Tasks 76 <#tasks>`__
+
+`Notifications 77 <#notifications>`__
+
+`Receive Tasks and Notifications via Email
+79 <#receive-tasks-and-notifications-via-email>`__
+
+`User, Roles, Agencies, Rejection Reasons & QA Indicators
+80 <#user-roles-agencies-rejection-reasons-qa-indicators>`__
+
+`Introduction 80 <#introduction-7>`__
+
+`Users 80 <#users>`__
+
+`Roles 80 <#roles>`__
+
+`Agencies 80 <#agencies>`__
+
+`Harvest authorisation privileges
+81 <#harvest-authorisation-privileges>`__
+
+`Target privileges 81 <#target-privileges>`__
+
+`Rejection Reasons 82 <#rejection-reasons>`__
+
+`QA Indicators 82 <#qa-indicators>`__
+
+`Flags 83 <#flags>`__
+
+`Reports 84 <#reports>`__
+
+`Introduction 84 <#introduction-8>`__
+
+`System usage report 84 <#system-usage-report>`__
+
+`System activity report 84 <#system-activity-report>`__
+
+`Crawler activity report 84 <#crawler-activity-report>`__
+
+`Target/Group Schedules report 85 <#targetgroup-schedules-report>`__
+
+`Summary Target Schedules report
+85 <#summary-target-schedules-report>`__
+
+`Harvester Configuration 87 <#harvester-configuration>`__
+
+`Introduction 87 <#introduction-9>`__
+
+`Bandwidth limits 87 <#bandwidth-limits>`__
+
+`Profiles 88 <#profiles>`__
+
+`How to create a profile 89 <#how-to-create-a-profile>`__
+
+`Permission Request Templates 91 <#permission-request-templates>`__
+
+`Introduction 91 <#introduction-10>`__
+
+`HTML Serials 92 <#html-serials>`__
+
+`Introduction 92 <#introduction-11>`__
+
+`Workflow 94 <#workflow>`__
+
+`Minimal workflow 94 <#minimal-workflow>`__
+
+`General workflow example 95 <#general-workflow-example>`__
+
+`Detailed workflow example 96 <#detailed-workflow-example>`__
+
 Introduction
 =====================
 

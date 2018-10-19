@@ -2,6 +2,89 @@
 System Administrator Guide
 ==========================
 
+Contents
+=====================
+
+`Introduction 3 <#introduction>`__
+
+`Contents of this document 3 <#contents-of-this-document>`__
+
+`Getting Started 4 <#getting-started>`__
+
+`Prerequisites 4 <#prerequisites>`__
+
+`Supported platforms 4 <#supported-platforms>`__
+
+`Other platforms 4 <#other-platforms>`__
+
+`Optional prerequisites 4 <#optional-prerequisites>`__
+
+`Setting up the WCT database 5 <#setting-up-the-wct-database>`__
+
+`Setup using Oracle 11g 5 <#setup-using-oracle-11g>`__
+
+`Setup using PostgreSQL 8.4.9 7 <#setup-using-postgresql-8.4.9>`__
+
+`Setup using MySQL 5.0.95 8 <#setup-using-mysql-5.0.95>`__
+
+`Setting up the WCT Application Servers
+9 <#setting-up-the-wct-application-servers>`__
+
+`Deploying WCT to Tomcat 9 <#deploying-wct-to-tomcat>`__
+
+`Configure the Database Connection
+10 <#configure-the-database-connection>`__
+
+`Configure LDAP Authentication (Unencrypted)
+11 <#configure-ldap-authentication-unencrypted>`__
+
+`Configure LDAP Authentication (Encrypted using TLS or SSL)
+12 <#configure-ldap-authentication-encrypted-using-tls-or-ssl>`__
+
+`Configure the Digital Asset Store
+13 <#configure-the-digital-asset-store>`__
+
+`Configure a Harvest Agent 13 <#configure-a-harvest-agent>`__
+
+`Set the Attachments Directories
+15 <#set-the-attachments-directories>`__
+
+`Logon to WCT 16 <#logon-to-wct>`__
+
+`Troubleshooting setup 17 <#troubleshooting-setup>`__
+
+`Configuration options 18 <#configuration-options>`__
+
+`Web Curator Core – context.xml 18 <#web-curator-core-context.xml>`__
+
+`Web Curator Core – wct-core.xml 18 <#web-curator-core-wct-core.xml>`__
+
+`Web Curator Core – wct-core.properties
+19 <#web-curator-core-wct-core.properties>`__
+
+`Web Curator Core – wct-core-security.xml
+22 <#web-curator-core-wct-core-security.xml>`__
+
+`Web Curator Digital Asset Store – wct-das.properties
+23 <#web-curator-digital-asset-store-wct-das.properties>`__
+
+`Web Curator Harvest Agent – wct-agent.properties
+25 <#web-curator-harvest-agent-wct-agent.properties>`__
+
+`Web Curator Harvest Agent – wct-agent.xml
+27 <#web-curator-harvest-agent-wct-agent.xml>`__
+
+`Web Curator Tool – SOAP Service Configuration
+28 <#web-curator-tool-soap-service-configuration>`__
+
+`Graceful shutdown and restart 29 <#graceful-shutdown-and-restart>`__
+
+`Appendix A: Creating a truststore and importing a certificate
+30 <#appendix-a-creating-a-truststore-and-importing-a-certificate>`__
+
+`Appendix B: The OMS archive adapter
+31 <#appendix-b-the-oms-archive-adapter>`__
+
 Introduction
 =====================
 
