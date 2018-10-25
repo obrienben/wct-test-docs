@@ -551,39 +551,7 @@ Configure a Heritrix 3 - Harvest Agent
 
 -  In addition to setting the Harvest Agent parameters, you may also
    want to change the default Heritrix v3 profile that is shipped with the
-   WCT. The most likely settings to change are what web proxy server to
-   use when harvesting content. The setting can be found in the
-   **WEB-INF/classes/default-profile.xml**::
-
-    <newObject name="HTTP" class="org.archive.crawler.fetcher.FetchHTTP">
-        <boolean name="enabled">true</boolean>
-        <map name="filters">
-        </map>
-        <map name="midfetch-filters">
-        </map>
-        <integer name="timeout-seconds">1200</integer>
-        <integer name="sotimeout-ms">20000</integer>
-        <long name="max-length-bytes">0</long>
-        <boolean name="ignore-cookies">false</boolean>
-        <boolean name="use-bdb-for-cookies">true</boolean>
-        <string name="load-cookies-from-file"></string>
-        <string name="save-cookies-to-file"></string>
-        <string name="trust-level">open</string>
-        <stringList name="accept-headers">
-        </stringList>
-        <string name="http-proxy-host"></string>
-        <string name="http-proxy-port"></string>
-        <string name="default-encoding">ISO-8859-1</string>
-        <boolean name="sha1-content">true</boolean>
-        <boolean name="send-connection-close">true</boolean>
-        <boolean name="send-referer">true</boolean>
-        <boolean name="send-range">false</boolean>
-    </newObject>
-
-   - If you don't have a web proxy then just leave the values blank.
-
-     *Heritrix v1.14 does not currently support authenticated proxy access, so
-     the proxy server must allow unauthenticated access.*
+   WCT. See the `Default profile`_ section.
 
 
 Configure a Heritrix 1 - Harvest Agent
@@ -1502,7 +1470,7 @@ For more information, please see:
 
 
 Default profile
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 There are only a select group of Heritrix 3 profile settings available through the WCT
 UI to configure. If configuration of additional settings is required, then the default
