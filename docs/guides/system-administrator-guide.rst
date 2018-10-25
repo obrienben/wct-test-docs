@@ -18,19 +18,24 @@ Contents of this document
 Following this introduction, the Web Curator Tool System Administrator
 Guide includes the following sections:
 
--  **Getting Started** (page 4) - covers prerequisites, supported
+-  **Getting Started** - covers prerequisites, supported
    platforms, other platforms, and optional prerequisites for using the
-   Web Curator Tool
+   Web Curator Tool.
 
--  **Setting up the WCT database** (page 5) - procedures for setup using
-   Oracle 11g , MySQL 5.0.95 and PostgreSQL 8.4.9
+-  **Setting up the WCT database** - procedures for setup using
+   Oracle, MySQL and PostgreSQL.
 
--  **Setting up the WCT Application Servers** (page 9) - procedures for
+-  **Setting up the WCT Application Servers** - procedures for
    deploying WCT to Tomcat, includes configuration options and
-   troubleshooting
+   troubleshooting.
+
+-  **Setting up Heritrix 3** - procedures for building and running
+   the Heritrix 3 web crawler to intergrate with WCT, includes
+   configuration options and troubleshooting.
 
 -  **Appendix A: Creating a truststore and importing a certificate**
-   (page 30).
+
+-  **Appendix B: The OMS archive adapter**
 
 
 Getting Started
@@ -45,10 +50,14 @@ Prerequisites
 The following are required to successfully install and run the Web
 Curator Tool:
 
--  Java 1.5 JDK or above
+-  Java 1.8 JDK or above (64bit recommended)
 
--  Apache Tomcat 5.5.X or above (the application has been tested on
-   Tomcat 5.5.15)
+   *During development of the latest version it was noted that large harvests
+   would sometimes fail to transfer from the Harvest Agent to Store on
+   completion. This was resolved by running Apache Tomcat with 64 bit Java.*
+
+-  Apache Tomcat 8.x.x or above (the application has been tested on
+   Tomcat 8.5.32)
 
 -  A database server (select one of the databases below)
 
@@ -70,7 +79,7 @@ Supported platforms
 The following platforms have been used during the development of the Web
 Curator Tool:
 
--  Sun Solaris 9
+-  Sun Solaris 10
 
 -  Red Hat Linux EL3.
 
@@ -91,6 +100,8 @@ The following prerequisites are optional:
 
 -  Apache Maven 3+ (required to build from source).
 
+- Git (can be used to clone the project source from Github)
+
 Setting up the WCT database
 =====================================
 
@@ -105,35 +116,26 @@ setting up the WCT database and schema.*
 
 1. Setup two schemas: one called DB_WCT that owns the tables and one
    called USR_WCT that the application uses to query the tables. The
-   USR_WCT schema should have limited rights. You can use a script
-   similar to the following:
+   USR_WCT schema should have limited rights. You can use the
+   following SQL script to do this::
 
-::
+    db/latest/setup/wct-create-oracle.sql
 
-    create user db_wct identified by password default tablespace wct_data quota unlimited on wct_data;
-
-    create user usr_wct identified by password default tablespace wct_data quota unlimited on wct_data;
-
-    grant create session to usr_wct;
-
-    grant connect,resource to db_wct;
 
 2. Run the following SQL scripts under the DB_WCT user or SYSTEM
-   account:
+   account::
 
-::
+    db/latest/setup/wct-schema-oracle.sql
 
-    sql/wct-schema-1_6_1-oracle.sql
+    db/latest/setup/wct-schema-grants.sql
 
-    sql/wct-schema-grants-1_6_1.sql
+    db/latest/setup/wct-indexes-oracle.sql
 
-    sql/wct-indexes-1_6_1-oracle.sql
+    db/latest/setup/wct-bootstrap-oracle.sql
 
-    sql/wct-oracle-bootstrap.sql
+    db/latest/setup/wct-qa-data-oracle.sql
 
-    sql/wct-qa-data-1_6-oracle.sql
-
-*The wct-qa-data-1_6-oracle.sql script will generate QA indicator
+*The wct-qa-data-oracle.sql script will generate QA indicator
 template data for the new QA module for each agency, and should be run*
 **once all agencies have been added to WCT**. *Note that if the script is
 re-run, it will clear out any existing template data.*
@@ -163,38 +165,29 @@ Setup using PostgreSQL 8.4.9
 *This guide assumes you have installed and configured PostgreSQL 8.4.9
 prior to setting up the WCT database and schema.*
 
-1. Setup two schema::
+1. Setup two schema, using the following script::
 
-    CREATE DATABASE "Dwct" WITH ENCODING='UTF8';
-
-    \\c Dwct
-
-    CREATE SCHEMA db_wct;
-
-    CREATE ROLE usr_wct LOGIN PASSWORD 'password' NOINHERIT VALID UNTIL 'infinity';
-
-    grant usage on schema db_wct to usr_wct;
-
+    db/latest/setup/wct-create-postgres.sql
 
 
 2. Then run the following SQL scripts under the DB_WCT user::
 
-    sql/wct-schema-1_6_1-postgresql.sql
+    db/latest/setup/wct-schema-postgresql.sql
     
-    sql/wct-schema-grants-1_6_1.sql
+    db/latest/setup/wct-schema-grants-postgresql.sql
     
-    sql/wct-indexes-1_6_1-postgresql.sql
+    db/latest/setup/wct-indexes-postgresql.sql
     
-    sql/wct-postgres-bootstrap.sql
+    db/latest/setup/wct-bootstrap-postgresql.sql
     
-    sql/wct-qa-data-1_6-postgres.sql
+    db/latest/setup/wct-qa-data-postgres.sql
 
-*The wct-qa-data-1_6-postgres.sql script will generate QA indicator
+*The wct-qa-data-postgres.sql script will generate QA indicator
 template data for the new QA module for each agency, and should be run*
 **once all agencies have been added to WCT**. *Note that if the script is
 re-run, it will clear out any existing template data.*
 
-3. The Postgres JDBC driver is included in the CVS repository under
+3. The Postgres JDBC driver is included in the Github repository under
    /etc/ directory.
 
    - The Postgres driver is called postgresql-8.1-404.jdbc3.jar
@@ -219,29 +212,25 @@ Setup using MySQL 5.0.95
 This guide assumes you have installed and configured MySQL 5.0.95 prior
 to setting up the WCT database and schema.
 
-1. Create the database::
+1. Create the database, using the following script::
 
-    CREATE DATABASE DB_WCT;
+    db/latest/setup/wct-create-postgres.sql
 
-    \\u DB_WCT
-
-    create user usr_wct@localhost identified by 'password';
-
-    grant all on DB_WCT.\* to usr_wct@localhost;
 
 2. Then run the following SQL scripts under the root user::
 
-    sql/wct-schema-1_6_1-mysql.sql
+    db/latest/setup/wct-schema-mysql.sql
 
-    sql/wct-schema-grants-1_6_1-mysql.sql
+    db/latest/setup/wct-schema-grants-mysql.sql
 
-    sql/wct-indexes-1_6_1-mysql.sql
+    db/latest/setup/wct-indexes-mysql.sql
 
-    sql/wct-mysql-bootstrap.sql
+    db/latest/setup/wct-bootstrap-mysql.sql
 
-    sql/wct-qa-data-1_6-mysql.sql
+    db/latest/setup/wct-qa-data-mysql.sql
 
-*The wct-qa-data-1_6-mysql.sql script will generate QA indicator template
+
+*The wct-qa-data-mysql.sql script will generate QA indicator template
 data for the new QA module for each agency, and should be run* **once all
 agencies have been added to WCT**. *Note that if the script is re-run, it
 will clear out any existing template data.*
@@ -286,7 +275,7 @@ Tool:
 
 To deploy WCT to Tomcat:
 
--  Make sure you have installed and configured both Java 1.5 JDK and Apache-Tomcat 5.5.X successfully.
+-  Make sure you have installed and configured both Java 1.8 JDK and Apache-Tomcat 8.x.x successfully.
 -  Set up the JMX Remote control and access files for the WCT core and
    every Harvest Agent.
 
@@ -499,8 +488,9 @@ Configure the Digital Asset Store
     # the base directory for the arc store
     arcDigitalAssetStoreService.baseDir=/tmp/arcstore
 
-Configure a Harvest Agent
-~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Configure a Heritrix 3 - Harvest Agent
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Make sure the following parameters are correct for your environment
    in the **wct-agent.properties** file::
@@ -513,14 +503,20 @@ Configure a Harvest Agent
     harvestAgent.host=localhost
     # the port the agent is listening on for http connections
     harvestAgent.port=8080
+    # the name of the harvest agent web service
+    harvestAgent.service=/harvest-agent-h3/services/urn:HarvestAgent
+    # the name of the harvest agent log reader web service
+    harvestAgent.logReaderService=/harvest-agent-h3/services/urn:LogReader
     # the max number of harvest to be run concurrently on this agent
     harvestAgent.maxHarvests=2
     # the name of the agent. must be unique
-    harvestAgent.name=My local Agent
+    harvestAgent.name=My local H1 Agent
     # the note to send with the harvest result.
     harvestAgent.provenanceNote=Original Harvest
     # the number of alerts that occur before a notification is sent
     harvestAgent.alertThreshold=200
+    # whether to attempt to recover running harvests from H3 instance on startup.
+    harvestAgent.attemptHarvestRecovery=true
 
 
     #HarvestCoordinatorNotifier
@@ -554,7 +550,7 @@ Configure a Harvest Agent
     heartbeatTrigger.repeatInterval=30000
 
 -  In addition to setting the Harvest Agent parameters, you may also
-   want to change the default Heritrix profile that is shipped with the
+   want to change the default Heritrix v3 profile that is shipped with the
    WCT. The most likely settings to change are what web proxy server to
    use when harvesting content. The setting can be found in the
    **WEB-INF/classes/default-profile.xml**::
@@ -586,8 +582,103 @@ Configure a Harvest Agent
 
    - If you don't have a web proxy then just leave the values blank.
 
-     *Heritrix does not currently support authenticated proxy access, so the
-     proxy server must allow unauthenticated access.*
+     *Heritrix v1.14 does not currently support authenticated proxy access, so
+     the proxy server must allow unauthenticated access.*
+
+
+Configure a Heritrix 1 - Harvest Agent
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Make sure the following parameters are correct for your environment
+   in the **wct-agent.properties** file::
+
+    #HarvestAgent
+
+    # name of the directory where the temporary harvest data is stored
+    harvestAgent.baseHarvestDirectory=/wct/harvest-agent
+    # agent host name or ip address that the core knows about
+    harvestAgent.host=localhost
+    # the port the agent is listening on for http connections
+    harvestAgent.port=8080
+    # the name of the harvest agent web service
+    harvestAgent.service=/harvest-agent-h1/services/urn:HarvestAgent
+    # the name of the harvest agent log reader web service
+    harvestAgent.logReaderService=/harvest-agent-h1/services/urn:LogReader
+    # the max number of harvest to be run concurrently on this agent
+    harvestAgent.maxHarvests=2
+    # the name of the agent. must be unique
+    harvestAgent.name=My local H1 Agent
+    # the note to send with the harvest result.
+    harvestAgent.provenanceNote=Original Harvest
+    # the number of alerts that occur before a notification is sent
+    harvestAgent.alertThreshold=200
+
+
+    #HarvestCoordinatorNotifier
+
+    # the name of the core harvest agent listener web service
+    harvestCoordinatorNotifier.service=/wct/services/urn:WebCuratorTool
+    # the host name or ip address of the core
+    harvestCoordinatorNotifier.host=localhost
+    # the port that the core is listening on for http connections
+    harvestCoordinatorNotifier.port=8080
+
+
+    #DigitalAssetStore
+
+    # the name of the digital asset store web service
+    digitalAssetStore.service=/wct-store/services/urn:DigitalAssetStore
+    # the host name or ip address of the digital asset store
+    digitalAssetStore.host=localhost
+    # the port that the digital asset store is listening on for http connections
+    digitalAssetStore.port=8080
+
+    ...
+
+    #Triggers
+
+    # startDelay: delay before running the job measured in milliseconds
+    # repeatInterval: repeat every xx milliseconds (Note that once a day is
+    86,400,000 millseconds)
+
+    heartbeatTrigger.startDelay=20000
+    heartbeatTrigger.repeatInterval=30000
+
+-  In addition to setting the Harvest Agent parameters, you may also
+   want to change the default Heritrix v1.14 profile that is shipped with the
+   WCT. The most likely settings to change are what web proxy server to
+   use when harvesting content. The setting can be found in the
+   **WEB-INF/classes/default-profile.xml**::
+
+    <newObject name="HTTP" class="org.archive.crawler.fetcher.FetchHTTP">
+        <boolean name="enabled">true</boolean>
+        <map name="filters">
+        </map>
+        <map name="midfetch-filters">
+        </map>
+        <integer name="timeout-seconds">1200</integer>
+        <integer name="sotimeout-ms">20000</integer>
+        <long name="max-length-bytes">0</long>
+        <boolean name="ignore-cookies">false</boolean>
+        <boolean name="use-bdb-for-cookies">true</boolean>
+        <string name="load-cookies-from-file"></string>
+        <string name="save-cookies-to-file"></string>
+        <string name="trust-level">open</string>
+        <stringList name="accept-headers">
+        </stringList>
+        <string name="http-proxy-host"></string>
+        <string name="http-proxy-port"></string>
+        <string name="default-encoding">ISO-8859-1</string>
+        <boolean name="sha1-content">true</boolean>
+        <boolean name="send-connection-close">true</boolean>
+        <boolean name="send-referer">true</boolean>
+        <boolean name="send-range">false</boolean>
+    </newObject>
+
+   - If you don't have a web proxy then just leave the values blank.
+
+     *Heritrix v1.14 does not currently support authenticated proxy access, so
+     the proxy server must allow unauthenticated access.*
 
 Set the Attachments Directories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1288,6 +1379,285 @@ the Apache Tomcat server.
 
     <parameter name="attachments.Directory" value="/tmp/attach"/>
 
+
+Setting up Heritrix 3
+=============================
+
+Integration with WCT
+-----------------------
+
+|image3|
+
+Heritrix 3 (H3) integrates with WCT through the new H3-Harvest-Agent. As an interface between WCT-Core and
+Heritrix 3, the Harvest Agent has three primary functions:
+
+- actioning crawl commands from the WCT UI (start, stop, pause, abort).
+- retrieving job status updates from Heritrix 3, to send onto WCT-Core.
+- copying completed harvest files from Heritrix 3 job directory to WCT-Store.
+
+*Previously Heritrix (v1.14) was bundled within the Harvest Agent, as a .jar dependency. Heritrix 3
+is now a standalone application external from WCT.*
+
+The H3 Harvest Agent requires a corresponding Heritrix 3 instance to be running. If Heritrix 3 is not
+runnning then new Target Instances will fail to start crawling.
+
+Prerequisites
+--------------
+
+- **Java** - A minimum of Java 7 is required. However due to an https issue with
+  H3, it is recommended to and run it using Java 8.
+
+  *For simplicity, it is recommended to run Heritrix 3 using the same Java version
+  as WCT, which is now 64bit Java 8.*
+
+Download
+---------
+
+The Heritrix 3 Github wiki contains a section detailing the current master builds
+available https://github.com/internetarchive/heritrix3/wiki#master-builds
+
+For the latest official stable builds visit:
+https://builds.archive.org/job/Heritrix-3/lastStableBuild/org.archive.heritrix%24heritrix/
+
+**Note** *- the official releases available in the Github repository are not up
+to date, with the latest being 3.2.0*
+
+Other versions
+~~~~~~~~~~~~~~~
+
+**Heritrix 3.3.0-LBS-2016-02** - From the National Library of Iceland, a stable version
+based on the Heritrix 3.3.0 master from May 2016.
+https://github.com/internetarchive/heritrix3/wiki#heritrix-330-lbs-2016-02-may-2016
+
+
+Building from source
+~~~~~~~~~~~~~~~~~~~~~
+
+Optionally, Heritrix 3 can be built from source. Use the Github repository:
+https://github.com/internetarchive/heritrix3/
+
+*Maven is required to build the project*
+
+Configuration
+------------------------
+
+Location
+~~~~~~~~~
+It is recommened to run Heritrix 3 as close to it's corresponding H3 Harvest
+Agent as possible, i.e. the same server. Running Heritrix 3 and the H3 Harvest
+Agent on separate servers has not been tested.
+
+Memory
+~~~~~~~~~
+
+If Heritrix 3 and it's corresponding Harvest Agent are running on the same server
+as WCT Core and Store, then Heritrix 3 may need greater memory allocation.
+
+Or depending on how many concurrent harvests you want to allow the H3 Harvest Agent
+to run, increasing the memory allocation for Heritrix 3 might be required.
+
+Place the following lines near the top of ``heritrix-3.3.0/bin/heritrix``
+
+::
+
+    #Java Configuration
+    JAVA_OPTS=" -Xms256m -Xmx1024m"
+
+Is there a better way of setting this??
+
+Jobs directory
+~~~~~~~~~~~~~~~
+Heritrix 3 creates a folder in it's job directory for each new job. After the registering
+of a new job in Heritrix 3 by the H3 Harvest Agent, the Agent completes the initial setup
+by copying the crawl profile (``crawler-beans.cxml``) and seeds (``seeds.txt``) into the
+new job folder.
+
+The Apache Tomcat running the H3 Harvest Agent **must have read and write access** to the
+top level jobs directory (and any child job folders) for Heritrix 3.
+
+On completion or termination of a Heritrix 3 job, the H3 Harvest Agent will attempt to
+clean up by removing the job folder.
+
+*It is best to keep the Heritrix 3 jobs directory separate from the H3 Harvest Agent*
+**harvestAgent.baseHarvestDirectory**. *If the same directory is used, Heritrix 3 constantly
+complain about all the old Harvest Agent harvest folders that it doesn't know about.*
+CHECK THIS IS STILL THE CASE!!!!
+
+Scripts directory
+~~~~~~~~~~~~~~~~~~
+
+The H3 scripts directory is used for storing pre-defined Heritrix 3
+scripts (js, groovy, beanshell) that WCT makes available for use
+through the scripting console window. These scripts can be run against
+harvests running on Heritrix 3.
+
+- The directory needs to be readable by the user running Tomcat.
+- The directory path needs to be set in **wct-core.properties.**
+
+For more information, please see:
+
+- https://github.com/internetarchive/heritrix3/wiki/Heritrix3-Useful-Scripts
+
+- https://heritrix.readthedocs.io/en/latest/api.html#execute-script-in-job
+
+
+Default profile
+~~~~~~~~~~~~~~~
+
+There are only a select group of Heritrix 3 profile settings available through the WCT
+UI to configure. If configuration of additional settings is required, then the default
+Heritrix 3 profile used by WCT can be edited. **This is only recommened for advanced users.**
+
+Care must be taken if editing the default profile xml. The WCT Heritrix 3 profile editor
+relies on a select group of xml elements being present and correctly formatted. The following
+list of xml elements must remain untouched in the xml. Other properties can be edited.
+
+- Where properties are shown, WCT edits those values
+- Where just the bean is shown, with no properties, WCT edits the entire bean element.
+
+::
+
+    <bean id="metadata" class="org.archive.modules.CrawlMetadata" autowire="byName">
+        <!-- <property name="robotsPolicyName" value="obey"/> -->
+        <!-- <property name="userAgentTemplate" value="Mozilla/5.0 (compatible; heritrix/@VERSION@ +@OPERATOR_CONTACT_URL@)"/> -->
+    </bean>
+
+    ...
+
+    <bean class="org.archive.modules.deciderules.TooManyHopsDecideRule">
+        <!-- <property name="maxHops" value="20" /> -->
+    </bean>
+
+    ...
+
+    <bean class="org.archive.modules.deciderules.TransclusionDecideRule">
+        <!-- <property name="maxTransHops" value="2" /> -->
+    </bean>
+
+    ...
+
+    <bean class="org.archive.modules.deciderules.TooManyPathSegmentsDecideRule">
+        <!-- <property name="maxPathDepth" value="20" /> -->
+    </bean>
+
+    ...
+
+    <bean class="org.archive.modules.deciderules.MatchesListRegexDecideRule">
+    </bean>
+
+    ...
+
+    <bean id="fetchHttp" class="org.archive.modules.fetcher.FetchHTTP">
+        <!-- <property name="defaultEncoding" value="ISO-8859-1" /> -->
+        <!-- <property name="ignoreCookies" value="false" /> -->
+    </bean>
+
+    ...
+
+    <bean id="warcWriter" class="org.archive.modules.writer.WARCWriterProcessor">
+        <!-- <property name="compress" value="true" /> -->
+        <!-- <property name="prefix" value="IAH" /> -->
+        <!-- <property name="maxFileSizeBytes" value="1000000000" /> -->
+    </bean>
+
+    ...
+
+    <bean id="crawlLimiter" class="org.archive.crawler.framework.CrawlLimitEnforcer">
+        <!-- <property name="maxBytesDownload" value="0" /> -->
+        <!-- <property name="maxDocumentsDownload" value="0" /> -->
+        <!-- <property name="maxTimeSeconds" value="0" /> -->
+    </bean>
+
+    ...
+
+    <bean id="disposition" class="org.archive.crawler.postprocessor.DispositionProcessor">
+        <!-- <property name="delayFactor" value="5.0" /> -->
+        <!-- <property name="minDelayMs" value="3000" /> -->
+        <!-- <property name="respectCrawlDelayUpToSeconds" value="300" /> -->
+        <!-- <property name="maxDelayMs" value="30000" /> -->
+        <!-- <property name="maxPerHostBandwidthUsageKbSec" value="0" /> -->
+    </bean>
+
+
+
+Running Heritrix 3
+------------------------
+
+Credentials
+~~~~~~~~~~~~
+By default the H3 Harvest Agent is configured to connect to H3 using:
+
+- username: admin
+- password: admin
+
+
+Starting Heritrix 3
+~~~~~~~~~~~~~~~~~~~~
+
+- **Linux/Unix**
+  ``./heritrix-3.3.0/bin/heritrix -a admin:admin -j /mnt/wct-harvester/dev/heritrix3``
+
+- **Windows**
+  ``./heritrix-3.3.0/bin/heritrix.cmd -a admin:admin -j /mnt/wct-harvester/dev/heritrix3``
+
+Stopping Heritrix 3
+~~~~~~~~~~~~~~~~~~~~
+
+Heritrix 3 can be stopped using two methods:
+
+- **Via the UI**. This will notify you of any jobs still running.
+
+- **Kill the Java process**. Your responsibility to check for and stop any
+  running jobs.
+
+
+Operation of Heritrix 3
+------------------------
+
+Jobs
+~~~~~~
+
+Two types of jobs are created in Heritrix 3 by the H3 Harvest Agent:
+
+- **Crawl Jobs** - standard crawl jobs for WCT Target Instances. Created for the
+  duration of running crawls.
+
+- **Profile Validation Jobs** - a single re-used job to validate Heritrix 3 profiles
+  created/edited in WCT-Core.
+
+
+Heritrix management UI
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Accessible via https://localhost:8443/engine
+
+
+Logging
+~~~~~~~~
+
+The Heritrix 3 output log can be located in the ``heritrix-3.3.0/heritrix_out.log`` file.
+
+
+Troubleshooting
+------------------------
+
+TODO
+
+logs
+
+using curl
+https://webarchive.jira.com/wiki/spaces/Heritrix/pages/5735014/Heritrix+3.x+API+Guide
+
+jobs fail
+- fail to build
+- fail during crawl
+
+old job dirs not being removed
+Occasionaly there are nfs hidden files that prevent these folders from deleting fully.
+
+web proxy access
+
+
 Graceful shutdown and restart
 =============================
 
@@ -1391,6 +1761,9 @@ To enable the OMS Archive, set the **archive** property in the
    maintained by the IIPC. See https://github.com/iipc/openwayback
 
 .. |image6| image:: ../_static/system-administrator-guide/image2.png
+   :width: 5.77361in
+   :height: 1.94306in
+.. |image3| image:: ../_static/system-administrator-guide/image3.png
    :width: 5.77361in
    :height: 1.94306in
 
